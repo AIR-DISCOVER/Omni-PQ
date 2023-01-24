@@ -1,0 +1,45 @@
+.
+├── batch_load_scannet_data.py
+├── compute_normal_for_pc.py
+├── data_viz.py
+├── load_scannet_data.py
+├── meta_data
+│   ├── scannet_means.npz
+│   ├── scannet_train.txt
+│   ├── scannetv2-labels.combined.tsv
+│   ├── scannetv2_test.txt
+│   ├── scannetv2_train.txt
+│   └── scannetv2_val.txt
+├── model_util_scannet.py
+├── scannet_detection_dataset.py
+├── scannet_planes
+│   ├── scene0000_00.json
+│   ├── scene0000_00.ply
+│   ├── scene0000_00.wrf
+│   └── <...>
+├── scannet_planes.py
+├── scannet_train_detection_data
+│   ├── scene0000_00_bbox.npy
+│   ├── scene0000_00_ins_label.npy
+│   ├── scene0000_00_sem_label.npy
+│   ├── scene0000_00_vert.npy
+│   └── <...>
+├── scannet_train_detection_data_normals
+│   ├── scene0000_00.normal.npy
+│   └── <...>
+├── scannet_utils.py
+├── scans
+│   └── scans
+│       ├── scene0000_00
+│       │   ├── scene0000_00.aggregation.json
+│       │   ├── scene0000_00.txt
+│       │   ├── scene0000_00_vh_clean_2.0.010000.segs.json
+│       │   ├── scene0000_00_vh_clean_2.ply
+│       │   ├── scene0000_00_vh_clean.aggregation.json
+│       │   └── scene0000_00_vh_clean.segs.json
+│       └── <...>
+├── scans_transform
+│   └── scene0000_00
+│       ├── scene0000_00.txt
+│       └── <...>
+└── viz_clean_ply.py
