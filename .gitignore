@@ -28,9 +28,6 @@ runs/
 scannet/buffer.TXT
 tmp.txt
 
-ARKitScenes/dataset
-ARKitScenes/repo
 pointnet2/build_/
-ARKitScenes/data/
 scannet/scans/
 scannet/scans_test/

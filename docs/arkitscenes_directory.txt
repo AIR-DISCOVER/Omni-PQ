@@ -1,0 +1,16 @@
+.
+├── arkitscenes_dataset.py
+├── arkitscenes_dataset_uncalibrated.py
+├── arkitscenes_utils.py
+├── dataset
+│   ├── 3dod
+│   │   ├── metadata.csv
+│   │   ├── Training
+│   │   └── Validation
+│   ├── compute_normal_for_pc.py
+│   ├── data
+│   │   ├── annotations   
+│   │   └── file.txt
+│   ├── train_filtered.txt
+│   └── valid_filtered.txt
+└── viz_clean_ply.py

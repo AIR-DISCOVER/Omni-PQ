@@ -2,15 +2,17 @@
 
 ![teaser](docs/teaser.png)
 
-This repository contains the official implementation of proposed architecture in [paper](https://arxiv.org/abs/xxxx.yyyyy), accepted by ICRA 2023.
+This repository contains the official implementation of the proposed architecture in [paper](https://arxiv.org/abs/xxxx.yyyyy), accepted by ICRA 2023.
 
 > Semi-supervised to Omni-supervised Room Layout Estimation Using Point Clouds
+>
 > Authors: Huan-ang Gao, Beiwen Tian, Pengfei Li, Xiaoxue Chen, Hao Zhao, Guyue Zhou, Yurong Chen and Hongbin Zha
+>
 > [Institute for AI Industry Research (AIR), Tsinghua University](http://air.tsinghua.edu.cn/EN/)
 
 
 ## Introduction
-Room layout estimation is a long-existing robotic vision task that benefits both environment sensing and motion planning. However, layout estimation using point clouds (PCs) still suffers from data scarcity due to annotation difficulty. As such, we address the semi-supervised setting of this task based upon the idea of model exponential moving averaging. But adapting this scheme to the state-of-the-art (SOTA) solution for PC-based layout estimation is not straightforward. To this end, we define a quad set matching strategy and several consistency losses based upon metrics tailored for layout quads. Besides, we propose a new online pseudo-label harvesting algorithm that decomposes the distribution of a hybrid distance measure between quads and PC into two components. This technique does not need manual threshold selection and intuitively encourages quads to align with reliable layout points. Surprisingly, this framework also works for the fully-supervised setting, achieving a new SOTA on the ScanNet benchmark. Last but not least, we also push the semi-supervised setting to the realistic omni-supervised setting, demonstrating significantly promoted performance on a newly annotated ARKitScenes testing set. Our codes, data and models are released in this repository.
+> Room layout estimation is a long-existing robotic vision task that benefits both environment sensing and motion planning. However, layout estimation using point clouds (PCs) still suffers from data scarcity due to annotation difficulty. As such, we address the semi-supervised setting of this task based upon the idea of model exponential moving averaging. But adapting this scheme to the state-of-the-art (SOTA) solution for PC-based layout estimation is not straightforward. To this end, we define a quad set matching strategy and several consistency losses based upon metrics tailored for layout quads. Besides, we propose a new online pseudo-label harvesting algorithm that decomposes the distribution of a hybrid distance measure between quads and PC into two components. This technique does not need manual threshold selection and intuitively encourages quads to align with reliable layout points. Surprisingly, this framework also works for the fully-supervised setting, achieving a new SOTA on the ScanNet benchmark. Last but not least, we also push the semi-supervised setting to the realistic omni-supervised setting, demonstrating significantly promoted performance on a newly annotated ARKitScenes testing set. Our codes, data and models are released in this repository.
 
 
 ## Environment Preparation
@@ -64,7 +66,10 @@ For ARKitScenes dataset, please follow these instructions:
 
 1. Download ARKitScenes dataset from [here](https://github.com/apple/ARKitScenes). We only need the `3dod` dataset in the aformentioned repository. Then extract the `ARKitScenes` folder to the same directory as the previous step.
 
-2. 
+2. Follow instructions [here](https://github.com/apple/ARKitScenes/tree/main/threedod) to prepare whole scene data offline.
+
+3. Step into `ARKitScenes/dataset` and run `python3 compute_normal_for_pc.py` to pre-compute the normal for each point in the point cloud.
+
 
 ## Getting Started
 
@@ -72,10 +77,12 @@ For ARKitScenes dataset, please follow these instructions:
 
 ### Evaluation
 
+
 ## Models
 
 
 ## Citation
 If you find this work useful for your research, please cite our paper:
+
 
 ## Acknowlodgement
