@@ -103,17 +103,17 @@ For evaluation models for ARKitScenes dataset, also simply put `--arkit` as a fl
 
 ## Models
 
-We provide you with the models underlined in the following table:
+We provide you with the bold-styled models in the following table:
 
 | Method         | 5%           | 10%          | 20%          | 30%          | 40%          | 100%         |
 | -------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
-| PQ-Transformer | 22.43        | <u>29.26</u> | 39.60        | 46.02        | 48.08        | <u>56.64</u>        |
-| Ours           | <u>29.08</u> | <u>36.85</u> | <u>48.68</u> | <u>54.35</u> | <u>56.92</u> | <u>60.75</u> |
+| PQ-Transformer | 22.43        | **29.26** | 39.60        | 46.02        | 48.08        | **56.64**        |
+| Ours           | **29.08** | **36.85** | **48.68** | **54.35** | **56.92** | **60.75** |
 
 | Method         | Recall (%) | Precision (%) | F1-score (%) |
 | -------------- | ---------- | ------------- | ------------ |
-| PQ-Transformer | 6.72       | 25.81         | <u>10.66</u> |
-| Ours           | 23.00      | 29.50         | <u>25.85</u> |
+| PQ-Transformer | 6.72       | 25.81         | **10.66** |
+| Ours           | 23.00      | 29.50         | **25.85** |
 
 Note that in our paper, we report the median performance of each experiment setting over three runs. Here we provide you with checkpoints with the same random seed 0.
 

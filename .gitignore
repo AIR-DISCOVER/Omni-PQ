@@ -35,6 +35,8 @@ test_label_*.txt
 *.tar.gz
 *.png
 !docs/teaser.png
+!docs/scannet.png
+!docs/arkit.png
 
 
 statistics/
