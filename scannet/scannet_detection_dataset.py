@@ -108,9 +108,6 @@ class ScannetDetectionDataset(Dataset):
         semantic_labels = np.load(os.path.join(self.data_path, scan_name)+'_sem_label.npy')
         instance_bboxes = np.load(os.path.join(self.data_path, scan_name)+'_bbox.npy')
         vertex_normals = np.load(os.path.join(self.data_path, os.pardir, "scannet_train_detection_data_normals", scan_name) + ".normal.npy")
-        # TODO: [c7w] Remove this
-        # point_guide_labels = np.load(os.path.join(self.data_path, os.pardir, "scannet_train_layout_data_points", scan_name) + '.npy')
-        # point_guide_label_normals = np.load(os.path.join(self.data_path, os.pardir, "scannet_train_layout_data_points", scan_name) + '.normal.npy')
 
         if not self.use_color:
             point_cloud = mesh_vertices[:,0:3] # do not use color for now
@@ -171,8 +168,6 @@ class ScannetDetectionDataset(Dataset):
                     point_cloud[:,0] = -1 * point_cloud[:,0]
                     target_bboxes[:,0] = -1 * target_bboxes[:,0]
                     vertex_normals[:, 0] = -1 * vertex_normals[:, 0]
-                    # point_guide_labels[..., 0] = -1 * point_guide_labels[..., 0]
-                    # point_guide_label_normals[..., 0] = -1 * point_guide_label_normals[..., 0]
                     rectangles[:,0] = -1* rectangles[:,0]      
                     rectangles[:,3] = -1* rectangles[:,3]
                     if horizontal_quads.shape[0] > 0:
@@ -184,8 +179,6 @@ class ScannetDetectionDataset(Dataset):
                     point_cloud[:,1] = -1 * point_cloud[:,1]
                     target_bboxes[:,1] = -1 * target_bboxes[:,1]
                     vertex_normals[:, 1] = -1 * vertex_normals[:, 1]
-                    # point_guide_labels[..., 1] = -1 * point_guide_labels[..., 1]
-                    # point_guide_label_normals[..., 1] = -1 * point_guide_label_normals[..., 1]
                     rectangles[:,1] = -1* rectangles[:,1]      
                     rectangles[:,4] = -1* rectangles[:,4]       
                     if horizontal_quads.shape[0] > 0:
@@ -201,8 +194,6 @@ class ScannetDetectionDataset(Dataset):
             rot_mat = pc_util.rotz(rot_angle)
             point_cloud[:,0:3] = np.dot(point_cloud[:,0:3], np.transpose(rot_mat))
             vertex_normals[:, 0:3] = np.dot(vertex_normals[:, 0:3], np.transpose(rot_mat))
-            # point_guide_labels[..., 0:3] = np.dot(point_guide_labels[..., 0:3], np.transpose(rot_mat))
-            # point_guide_label_normals[..., 0:3] = np.dot(point_guide_label_normals[:, 0:3], np.transpose(rot_mat))
             target_bboxes = rotate_aligned_boxes(target_bboxes, rot_mat)
             rectangles = rotate_quad(rectangles, rot_mat)
             if horizontal_quads.shape[0] > 0:
@@ -217,7 +208,6 @@ class ScannetDetectionDataset(Dataset):
                 scale_ratio = np.array(1.)
             # scale_ratio = np.expand_dims(np.tile(scale_ratio_, 3), 0)
             point_cloud[:, 0:3] *= scale_ratio
-            # point_guide_labels[..., 0:3] *= scale_ratio
             target_bboxes[:, 0:3] *= scale_ratio
             target_bboxes[:, 3:6] *= scale_ratio
             rectangles[:, 0:3] *= scale_ratio
@@ -306,10 +296,7 @@ class ScannetDetectionDataset(Dataset):
 
         ret_dict['gt_quad_centers'] = target_quad_centers.astype(np.float32)
         ret_dict['gt_quad_sizes'] = target_quad_sizes.astype(np.float32)
-        # ret_dict['gt_quad_label'] = point_guide_labels.astype(np.float32)
-        # ret_dict['gt_quad_label_normals'] = point_guide_label_normals.astype(np.float32)
         ret_dict['gt_normal_vectors'] = target_normal_vectors.astype(np.float32)
-        #ret_dict['gt_quad_direction'] = target_quad_direction.astype(np.float32)
 
         num_gt_quads = np.zeros((NUM_QUAD_PROPOSAL))+ rectangles.shape[0]
         ret_dict['num_gt_quads'] =  num_gt_quads.astype(np.int64)

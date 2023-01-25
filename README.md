@@ -4,9 +4,9 @@
 
 This repository contains the official implementation of the proposed architecture in [paper](https://arxiv.org/abs/xxxx.yyyyy), accepted by ICRA 2023.
 
-> Semi-supervised to Omni-supervised Room Layout Estimation Using Point Clouds
+> **Semi-supervised to Omni-supervised Room Layout Estimation Using Point Clouds**
 >
-> Authors: Huan-ang Gao, Beiwen Tian, Pengfei Li, Xiaoxue Chen, Hao Zhao, Guyue Zhou, Yurong Chen and Hongbin Zha
+> Authors: *Huan-ang Gao, Beiwen Tian, Pengfei Li, Xiaoxue Chen, Hao Zhao, Guyue Zhou, Yurong Chen and Hongbin Zha*
 >
 > [Institute for AI Industry Research (AIR), Tsinghua University](http://air.tsinghua.edu.cn/EN/)
 
@@ -26,7 +26,8 @@ conda activate omni-pq
 
 Then we can install PyTorch and CUDAToolKit by:
 ```bash
-conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
+conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 \
+        -c pytorch -c conda-forge
 ```
 
 We can install the required packages by running the following command:
