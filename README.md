@@ -2,7 +2,7 @@
 
 ![teaser](docs/teaser.png)
 
-This repository contains the official implementation of the proposed architecture in [paper](https://arxiv.org/abs/xxxx.yyyyy), accepted by ICRA 2023.
+This repository contains the official implementation of the proposed framework in [paper](https://arxiv.org/abs/xxxx.yyyyy), accepted by ICRA 2023.
 
 > **Semi-supervised to Omni-supervised Room Layout Estimation Using Point Clouds**
 >
@@ -117,7 +117,7 @@ We provide you with the bold-styled models in the following table:
 
 Note that in our paper, we report the median performance of each experiment setting over three runs. Here we provide you with checkpoints with the same random seed 0.
 
-You can download these models at [ [Google Drive]() | [Tsinghua Cloud Storage]() ] and place them under `pretrained_model` directory. If the directory does not exist, you can create one.
+You can download these models at [ [Google Drive](https://drive.google.com/drive/folders/1vv9Po5Lwy3xDUsFSvHR741fIO2nT2Eac?usp=sharing) | [Tsinghua Cloud Storage](https://cloud.tsinghua.edu.cn/d/b5eac112a56f4f499d0a/) ] and place them under `pretrained_model` directory. If the directory does not exist, you can create one.
 
 ## Qualitative Results
 
