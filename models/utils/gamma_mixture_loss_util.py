@@ -64,7 +64,7 @@ def quad_point_mixture_metric(quad_center, normal_vector, quad_size, quad_score,
         from fit import fit_gamma
         mask_label = fit_gamma(total_distance.detach().cpu().numpy(), a1=2, b1=20, a2=3, b2=1, weight=0.1, step=25,\
                         # save=None)
-                        save="./dump/fig/" + kwargs['save_name'], quiet=False)
+                        save=None if kwargs['save_name'] is None else "./dump/fig/" + kwargs['save_name'], quiet=True)
         keep_mask = ~torch.tensor(mask_label)
         np.seterr(**old_settings)
     else:
@@ -179,9 +179,9 @@ def gamma_mixture_guide_criterion(end_points, DATASET_CONFIG, config, **kwargs):
             downsampled_pc = point_clouds[b, downsample_inds, ...]
             
             metric_normal, metric_vertical, metric_size, metric_score = quad_point_mixture_metric(quad_center, normal_vector, quad_size, quad_score,\
-                                                                                    downsampled_pc, downsampled_normal,\
-                                                                                    prefix=prefix, config=config, DATASET_CONFIG=DATASET_CONFIG,\
-                                                                                    save_name=end_points['scan_name'][b], **kwargs)
+                                        downsampled_pc, downsampled_normal,\
+                                        prefix=prefix, config=config, DATASET_CONFIG=DATASET_CONFIG,\
+                                        save_name=None, **kwargs)
             mixture_metric_normal += metric_normal
             mixture_metric_vertical += metric_vertical
             mixture_metric_size += metric_size

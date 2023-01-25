@@ -19,8 +19,8 @@ from box_util import get_3d_box, get_3d_box_tensor
 from models.utils.ap_util import extract_pc_in_box3d
 
 MAX_NUM_QUAD = 32
-LENGTH = 0.5
-QUAD_THRES = 0.995
+LENGTH = 0.1
+QUAD_THRES = 0.5
 
 
 def flip_axis_to_camera(pc):
@@ -733,28 +733,6 @@ class QUADAPCalculator(object):
         r = tp/npos
         
         f1 = 2.0*p*r/max((p+r),1e-6)
-        
-        if self.logger is not None:
-            self.logger.info(f"{tp}, {fp}, {fn}, {npos}")
-            if is_ema:
-                import wandb
-                wandb.log({
-                    "val-ema/tp": tp,
-                    "val-ema/fp": fp,
-                    "val-ema/F1-p": p,
-                    "val-ema/F1-r": r,
-                    "val-ema/F1": f1
-                }, step=self.I)
-            else:
-                import wandb
-                wandb.log({
-                    "val/tp": tp,
-                    "val/fp": fp,
-                    "val/F1-p": p,
-                    "val/F1-r": r,
-                    "val/F1": f1
-                }, step=self.I)
-
         return f1
 
         

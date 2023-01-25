@@ -576,9 +576,6 @@ def get_loss_teacher(end_points, ema_end_points, config, query_points_obj_topk=5
         quad_score_end_points[f'{prefix}normal_vector'] = end_points[f'{prefix}normal_vector']
 
 
-    import IPython
-    IPython.embed(header="get_loss_teacher")
-
     from models.ema_loss_helper_pq import compute_quad_score_loss_ema
     quad_score_loss_sum, quad_score_end_points = compute_quad_score_loss_ema(quad_score_end_points)
     quad_score_end_points['quad_score_loss_sum'] = quad_score_loss_sum

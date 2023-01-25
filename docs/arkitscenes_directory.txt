@@ -1,6 +1,5 @@
 .
 ├── arkitscenes_dataset.py
-├── arkitscenes_dataset_uncalibrated.py
 ├── arkitscenes_utils.py
 ├── dataset
 │   ├── 3dod

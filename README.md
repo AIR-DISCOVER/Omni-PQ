@@ -8,7 +8,7 @@ This repository contains the official implementation of the proposed architectur
 >
 > Authors: *Huan-ang Gao, Beiwen Tian, Pengfei Li, Xiaoxue Chen, Hao Zhao, Guyue Zhou, Yurong Chen and Hongbin Zha*
 >
-> [Institute for AI Industry Research (AIR), Tsinghua University](http://air.tsinghua.edu.cn/EN/)
+> [Institute for AI Industry Research (AIR), Tsinghua University](https://air.tsinghua.edu.cn/en/)
 
 
 ## Introduction
@@ -76,14 +76,64 @@ For ARKitScenes dataset, please follow these instructions:
 
 ### Training
 
+We provide a script `train.sh` for quick start. You can run the following command to train the model:
+
+```bash
+bash train.sh --checkpoint_path=pretrained_model/T10-base.pth --rate 0.10
+```
+
+We first train the original PQ-Transformer model with 10% labeled data and save the checkpoint with name `T10-base.pth`. Then for our semi-supervised training, we specify the checkpoint path of the original model to resume and set the `rate` to control the amount of labeled data.
+
+We provide `T10-base.pth` and `T100-base.pth` for quick start. You can download them in the Model Zoo section below.
+
+For training models for ARKitScenes dataset, simply put `--arkit` as a flag in the command line.
+
 ### Evaluation
+
+For evaluation we also provide a script `eval.sh` for you. You can run the following command to evaluate the model:
+
+```bash
+bash eval.sh --checkpoint_path pretrained_model/T10.pth
+```
+
+Here you only need to specify the checkpoint path of the model you want to evaluate.
+
+For evaluation models for ARKitScenes dataset, also simply put `--arkit` as a flag in the command line.
 
 
 ## Models
 
+We provide you with the models underlined in the following table:
+
+| Method         | 5%           | 10%          | 20%          | 30%          | 40%          | 100%         |
+| -------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
+| PQ-Transformer | 22.43        | <u>29.26</u> | 39.60        | 46.02        | 48.08        | <u>56.64</u>        |
+| Ours           | <u>29.08</u> | <u>36.85</u> | <u>48.68</u> | <u>54.35</u> | <u>56.92</u> | <u>60.75</u> |
+
+| Method         | Recall (%) | Precision (%) | F1-score (%) |
+| -------------- | ---------- | ------------- | ------------ |
+| PQ-Transformer | 6.72       | 25.81         | <u>10.66</u> |
+| Ours           | 23.00      | 29.50         | <u>25.85</u> |
+
+Note that in our paper, we report the median performance of each experiment setting over three runs. Here we provide you with checkpoints with the same random seed 0.
+
+You can download these models at [ [Google Drive]() | [Tsinghua Cloud Storage]() ] and place them under `pretrained_model` directory. If the directory does not exist, you can create one.
+
+## Qualitative Results
+
+![scannet](docs/scannet.png)
+
+![arkit](docs/arkit.png)
+
 
 ## Citation
 If you find this work useful for your research, please cite our paper:
+```bibtex
+@article{
+    TODO
+}
+```
 
+## Acknowledgement
 
-## Acknowlodgement
+We build our codebase on [PQ-Transformer](https://github.com/OPEN-AIR-SUN/PQ-Transformer), a 3D point cloud transformer for joint object detection and layout estimation. We also give credits to [Mean Teacher](https://github.com/CuriousAI/mean-teacher) and [SESS](https://github.com/Na-Z/sess).
