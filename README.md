@@ -2,7 +2,7 @@
 
 ![teaser](docs/teaser.png)
 
-This repository contains the official implementation of the proposed framework in [paper](https://arxiv.org/abs/xxxx.yyyyy), accepted by ICRA 2023.
+This repository contains the official implementation of the proposed framework in [paper](https://arxiv.org/abs/2301.13865), accepted by ICRA 2023.
 
 > **Semi-supervised to Omni-supervised Room Layout Estimation Using Point Clouds**
 >
