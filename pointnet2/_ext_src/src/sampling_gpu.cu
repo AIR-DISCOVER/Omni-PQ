@@ -70,7 +70,7 @@ __device__ void __update(float *__restrict__ dists, int *__restrict__ dists_i,
 }
 
 // Input dataset: (b, n, 3), tmp: (b, n)
-// Ouput idxs (b, m)
+// Output idxs (b, m)
 template <unsigned int block_size>
 __global__ void furthest_point_sampling_kernel(
     int b, int n, int m, const float *__restrict__ dataset,
