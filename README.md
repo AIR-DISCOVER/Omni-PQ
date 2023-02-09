@@ -129,8 +129,11 @@ You can download these models at [ [Google Drive](https://drive.google.com/drive
 ## Citation
 If you find this work useful for your research, please cite our paper:
 ```bibtex
-@article{
-    TODO
+@article{gao2023semi,
+  title={From Semi-supervised to Omni-supervised Room Layout Estimation Using Point Clouds},
+  author={Gao, Huan-ang and Tian, Beiwen and Li, Pengfei and Chen, Xiaoxue and Zhao, Hao and Zhou, Guyue and Chen, Yurong and Zha, Hongbin},
+  journal={arXiv preprint arXiv:2301.13865},
+  year={2023}
 }
 ```
 
